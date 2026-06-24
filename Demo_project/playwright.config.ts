@@ -7,8 +7,10 @@ import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
 const envName = process.env.ENV || 'qa';
-const result = dotenv.config({ path: path.resolve(__dirname, 'env', `.env.${envName}`) });
-
+const envPath = path.resolve(__dirname, 'env', `.env.${envName}`);
+console.log('ENV =', envName);
+console.log('ENV PATH =', envPath);
+const result = dotenv.config({ path: envPath });
 if (result.error) {
   throw new Error(`Failed to load env file for ENV=${envName}: ${result.error.message}`);
 }
