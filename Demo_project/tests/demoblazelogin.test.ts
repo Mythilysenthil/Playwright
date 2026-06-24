@@ -1,6 +1,5 @@
 import {test, expect } from '@playwright/test';
-import dotenv from 'dotenv'
-dotenv.config()
+
 test('Login Test', async ({page}) => {
     await page.goto(process.env.BASE_URL!);
     await page.click('#login2');

@@ -5,9 +5,13 @@ import { defineConfig, devices } from '@playwright/test';
  * https://github.com/motdotla/dotenv
  */
 import dotenv from 'dotenv';
-// import path from 'path';
+import path from 'path';
 const envName = process.env.ENV || 'qa';
-dotenv.config({ path: `./env/.env.${envName}` });
+const result = dotenv.config({ path: path.resolve(__dirname, 'env', `.env.${envName}`) });
+
+if (result.error) {
+  throw new Error(`Failed to load env file for ENV=${envName}: ${result.error.message}`);
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
