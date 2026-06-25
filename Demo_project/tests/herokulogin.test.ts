@@ -1,5 +1,5 @@
 import {test, expect } from '@playwright/test';
-import path from 'path';
+
 test('Login Test', async ({page}) => {
     await page.goto(process.env.BASE_URL!);
     await page.fill('#username',process.env.UNAME!);

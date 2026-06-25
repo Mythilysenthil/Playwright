@@ -11,9 +11,6 @@ const envPath = path.resolve(__dirname, 'env', `.env.${envName}`);
 console.log('ENV =', envName);
 console.log('ENV PATH =', envPath);
 const result = dotenv.config({ path: envPath });
-if (result.error) {
-  throw new Error(`Failed to load env file for ENV=${envName}: ${result.error.message}`);
-}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -41,9 +38,11 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     browserName: 'chromium',
     headless: true,
+    trace: {
+      mode: 'on'
+    },
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    trace: 'on-first-retry',
+    video: 'retain-on-failure'
   },
 
   /* Configure projects for major browsers */
