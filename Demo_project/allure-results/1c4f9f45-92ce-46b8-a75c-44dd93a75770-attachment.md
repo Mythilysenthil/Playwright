@@ -1,0 +1,44 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: context.test.ts >> Login Test Demo
+- Location: tests\context.test.ts:3:1
+
+# Error details
+
+```
+Error: page.waitForTimeout: Target page, context or browser has been closed
+```
+
+# Test source
+
+```ts
+  1  | import { chromium, test , expect} from "@playwright/test";
+  2  | 
+  3  | test("Login Test Demo", async() => {
+  4  |     const browser = await chromium.launch({headless: false});
+  5  |     const context = await browser.newContext();
+  6  |     const page = await context.newPage();
+  7  |     await page.goto("https://www.demoblaze.com/");
+  8  |     await page.click("//a[@id='login2']");
+  9  |     await page.fill("//input[@id='loginusername']","admin");
+  10 |     await page.fill("//input[@id='loginpassword']","admin");
+  11 |     await page.click("//button[@onclick='logIn()']");
+> 12 |     await page.waitForTimeout(5000);
+     |                ^ Error: page.waitForTimeout: Target page, context or browser has been closed
+  13 |     
+  14 |     //context is shared to the nxt page1
+  15 |     const page1 = await context.newPage();
+  16 |     await page1.goto("https://www.demoblaze.com/cart.html");
+  17 |     await page.waitForTimeout(5000);
+  18 | 
+  19 |     const NewPage = await context.newPage();
+  20 |     await NewPage.goto("https://www.demoblaze.com/cart.html");
+  21 |     await page.waitForTimeout(5000);
+  22 | })
+```
