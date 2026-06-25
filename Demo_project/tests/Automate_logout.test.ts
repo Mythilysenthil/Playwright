@@ -1,6 +1,6 @@
 import {test, expect } from '@playwright/test';
 
-test('Login Test', async ({page}) => {
+test('Logout Test', async ({page}) => {
     await page.goto("http://automationexercise.com");
     await expect(page.locator("//img[@alt='Website for automation practice']")).toBeVisible();
     await page.getByText(" Signup / Login").click();

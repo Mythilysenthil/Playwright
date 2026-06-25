@@ -1,6 +1,6 @@
 import {test, expect } from '@playwright/test';
 
-test('Contact form Test', async ({page}) => {
+test('Contact Form Test', async ({page}) => {
     await page.goto("http://automationexercise.com");
     await expect(page.locator("//img[@alt='Website for automation practice']")).toBeVisible();
     await page.getByRole('link',{name: ' Contact us'}).click();

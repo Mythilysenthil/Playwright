@@ -31,4 +31,5 @@ test('Exist Registation Test', async ({ page }) => {
   await page.locator("//input[@data-qa = 'signup-email']").fill("mythily@gmail.com");
   await page.getByRole('button',{name : 'Signup'}).click();
   await expect(page.getByText("Email Address already exist!")).toBeVisible();
+  
 });
