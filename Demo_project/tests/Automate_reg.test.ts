@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 
 test('Registation Test', async ({ page }) => {
-  const uniqueEmail = `mythily${Date.now()}@gmail.com`;
+
   await page.goto("http://automationexercise.com");
   await expect(page.locator("//img[@alt='Website for automation practice']")).toBeVisible();
   await page.getByText(" Signup / Login").click();
   await page.getByPlaceholder("Name").fill("Mythily");
-  await page.locator("//input[@data-qa = 'signup-email']").fill("uniqueEmail");
+  await page.locator("//input[@data-qa = 'signup-email']").fill("mythily123@gmail.com");
   await page.getByRole('button',{name : 'Signup'}).click();
   await page.locator("#id_gender2").click();
   await page.locator("#password").fill("mythily");
