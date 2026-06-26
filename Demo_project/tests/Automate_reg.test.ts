@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test('Registation Test', async ({ page }) => {
-
-  await page.goto("http://automationexercise.com");
+  
+  await page.goto("https://automationexercise.com");
   await expect(page.locator("//img[@alt='Website for automation practice']")).toBeVisible();
   await page.getByText(" Signup / Login").click();
   await page.getByPlaceholder("Name").fill("Mythily");
