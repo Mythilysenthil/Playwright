@@ -22,5 +22,5 @@ test("Multi-Select", async({page}) =>{
     ])
 })
 test.afterEach(async({page}) =>{
-    console.log("Test Completed");
+    console.log("Test Completed"); 
 })

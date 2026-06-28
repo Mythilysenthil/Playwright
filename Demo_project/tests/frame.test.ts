@@ -1,6 +1,6 @@
 import { test,expect } from '@playwright/test';
 
-test('Frame Test',async({page})=>{
+test('Frame1 Test',async({page})=>{
     await page.goto('https://letcode.in/frame');
     const allframes=page.frames();
     console.log("No of Frames:" + allframes.length);

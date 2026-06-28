@@ -42,8 +42,6 @@ test("Iterate Window Attribute", async({page, context}) =>{
         }
     }
 })
-
-
 test.afterEach(async({page}) => {
     console.log("Test is completed")
 })

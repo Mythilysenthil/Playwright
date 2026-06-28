@@ -1,4 +1,0 @@
-Total Pages Opened: 2
-URL:  https://demoqa.com/browser-windows
-URL:  https://demoqa.com/sample
-Test is completed

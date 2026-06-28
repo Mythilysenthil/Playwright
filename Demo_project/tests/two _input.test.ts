@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Two input Test', async ({page}) => {
+test('Two input Test' , async ({page}) => {
    await page.goto("https://www.testmuai.com/selenium-playground/simple-form-demo/", {waitUntil : 'networkidle'});
     console.log(page.url());
     await page.getByTitle("//h1[text()='Simple Form Demo']").isVisible();
