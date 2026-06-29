@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "npx playwright test",
+    "lastfailed": "npx playwright test --last-failed=2",
+    "testParallel": "playwright test --workers=2",
     "test:qa": "cross-env ENV=qa playwright test",
     "test:uat": "cross-env ENV=uat playwright test",
     "test:prod": "cross-env ENV=prod playwright test",
@@ -15,11 +18,20 @@
   "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
+    "@types/jasmine": "^6.0.0",
     "@types/node": "^26.0.1",
     "allure-playwright": "^3.10.1",
     "cross-env": "^10.1.0",
+    "jasmine-core": "^6.3.0",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-webpack": "^5.0.1",
+    "ts-loader": "^9.6.2",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "webpack": "^5.108.1",
+    "webpack-dev-server": "^5.2.5"
   },
   "dependencies": {
     "dotenv": "^17.4.2"
