@@ -16,10 +16,13 @@ export class LoginPage{
         this.errorMessage=page.locator('.oxd-alert-content-text');
     }
     async navigate(){
-        await this.page.goto("https://opensource-demo.orangehrmlive.com/");
-        {
-            waitUntil:'domcontentloaded'
+        const url = process.env.BASE_URL;
+        if(!url){
+            throw new Error('Base url is not defined');
         }
+        await this.page.goto(url, {
+            waitUntil:'domcontentloaded'
+        });
     }
     async getLoginTitle() {
         return await this.loginTitle.textContent();
