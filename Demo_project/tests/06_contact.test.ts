@@ -9,9 +9,10 @@ test('Contact Form Test', async ({page}) => {
     await page.locator("//input[@name='email']").fill("mythily11@gmail.com");
     await page.getByPlaceholder("Subject").fill("Products Inquiry");
     await page.getByPlaceholder("Your Message Here").fill("Improve the product quality");
-    await page.locator("//input[@type='submit']").click();
+    await page.locator('input[name="upload_file"]').setInputFiles('test-data/sample.jpg');
     page.once('dialog', async (dialog) => { await dialog.accept(); });
+    await page.locator("//input[@type='submit']").click();
     await page.getByText(".status alert alert-success").isVisible();
-    await page.getByRole('link', {name: ' Home'}).click();
+    await page.locator("a.btn.btn-success").click();
     await expect(page).toHaveURL('https://automationexercise.com');
 });
